@@ -11,10 +11,7 @@ client = commands.Bot(command_prefix="+", intents=intents)
 @client.event
 async def on_member_join(member):
     await member.send(embed=discord.Embed(title="***Welcome***",
-                                          description=f"***Info***\n"
-                                                      f"Feel free to ask our moderators anything"
-                                                      f" on the support room. They will try to "
-                                                      f"answer you as soon as possible\n",
+                                          description=f"***Info***\n",
                                           color=0xff9f12))
 
 
@@ -129,7 +126,7 @@ async def c(ctx, amount):
 @commands.has_permissions(kick_members=True)
 async def k(ctx, member: discord.Member, *, reason="No specified reason"):
     await ctx.send(embed=discord.Embed(title="kick ",
-                                       description="User-ul "+str(member)+" was kicked!",
+                                       description="User "+str(member)+" was kicked!",
                                        color=0xff9f12))
     await member.send("You were kicked because: " + reason)
     await member.kick(reason=reason)
@@ -145,7 +142,7 @@ async def k(ctx, member: discord.Member, *, reason="No specified reason"):
 @client.command(aliases=["ban"])
 @commands.has_permissions(ban_members=True)
 async def b(ctx, member: discord.Member, *, reason="No specified reason"):
-    await member.send("Ai primit ban de pe server deoarece: "+reason)
+    await member.send("You were banned because: "+reason)
     await member.ban(reason=reason)
     await ctx.send(embed=discord.Embed(title="Ban ",
                                        description="User " + str(member) + " was banned!",
