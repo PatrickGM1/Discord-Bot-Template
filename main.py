@@ -189,4 +189,4 @@ async def sm(ctx):
                                        color=0xff9f12))
 
 
-client.run("ODE4MDg0Njg5MTA5NDUwNzgy.YES6vQ.V7jd57b38lDF9FwjvsB7PiZHnPY")
+client.run("")
