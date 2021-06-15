@@ -2,8 +2,6 @@ import discord
 from datetime import datetime
 from datetime import date
 from discord.ext import commands
-import time
-import webbrowser
 from discord.ext.commands import CommandNotFound
 intents = discord.Intents.all()
 
@@ -37,11 +35,10 @@ async def on_command_error(ctx, error):
 @client.event
 async def on_ready():
 
-    webbrowser.open("https://glitch.com/edit/#!/workable-serious-brisket?path=.env%3A1%3A0")
     await client.change_presence(status=discord.Status.online, activity=game)
     print("Logged in as")
     print(client.user.name)
-    print(client.user.id)   
+    print(client.user.id)
     print('------')
 
 
@@ -143,20 +140,6 @@ async def k(ctx, member: discord.Member, *, reason="No specified reason"):
     f = open("log.txt", "a")
     f.write("\n"+str(member) + " was kicked - "+d1+" "+current_time)
     f.close()
-
-
-@client.command(aliases=["spam"])
-@commands.has_permissions(administrator=True)
-async def msg(ctx, member: discord.Member, *, msg1):
-    now = datetime.now()
-    current_time = now.strftime("%H:%M:%S")
-    today = date.today()
-    d1 = today.strftime("%d/%m/%Y")
-    f = open("log.txt", "a")
-    f.write("\nMi-am batut joc de: " + str(member) + " - " + d1 + " " + current_time)
-    f.close()
-    i = 0
-    await member.send(""+str(msg1))
 
 
 @client.command(aliases=["ban"])
