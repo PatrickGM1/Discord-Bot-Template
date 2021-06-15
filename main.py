@@ -51,7 +51,7 @@ async def hello(ctx):
 async def comenzi(ctx):
     await ctx.send(embed=discord.Embed(title="***Commands***",
                                        description="1. hello\n"
-                                                   "2. comands\n"
+                                                   "2. commands\n"
                                                    "3. clear\n"
                                                    "4. kick\n"
                                                    "5. ban\n"
