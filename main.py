@@ -14,18 +14,13 @@ client = commands.Bot(command_prefix="+", intents=intents)
 async def on_member_join(member):
     await member.send(embed=discord.Embed(title="***Welcome***",
                                           description=f"***Info***\n"
-                                                      f"The server's idea is to be the center for a community "
-                                                      f" of streamers that started from the bottom and"
-                                                      f" want to climb as high as possible\n"
-                                                      f"We want to bring quality entertainment "
-                                                      f"to the world, funny moments and once in a while good advice\n"
                                                       f"Feel free to ask our moderators anything"
                                                       f" on the support room. They will try to "
                                                       f"answer you as soon as possible\n",
                                           color=0xff9f12))
 
 
-game = discord.Game("StreamHub Mod 24/7 On. Come join us: https://discord.gg/AwxmTaek8h")
+game = discord.Game("Insert bot status")
 
 
 @client.event
@@ -65,8 +60,7 @@ async def comenzi(ctx):
                                                    "5. ban\n"
                                                    "6. unban\n"
                                                    "7. mute\n"
-                                                   "8. unmute\n"
-                                                   "9. Summonmusicbot\n",
+                                                   "8. unmute\n",
                                        color=0xff9f12))
 
 
@@ -83,7 +77,7 @@ async def m(ctx, member: discord.Member):
     now = datetime.now()
     current_time = now.strftime("%H:%M:%S")
     f = open("log.txt", "a")
-    f.write("\n"+str(member)+" a primit mute - "+d1+" "+current_time)
+    f.write("\n"+str(member)+" was muted - "+d1+" "+current_time)
     f.close()
 
 
@@ -93,14 +87,14 @@ async def um(ctx, member: discord.Member):
     muted_role = ctx.guild.get_role(818119933509500958)
     await member.remove_roles(muted_role)
     await ctx.send(embed=discord.Embed(title="Mute ",
-                                       description="User-ul "+str(member)+" was unmuted!",
+                                       description="User "+str(member)+" was unmuted!",
                                        color=0xff9f12))
     today = date.today()
     d1 = today.strftime("%d/%m/%Y")
     now = datetime.now()
     current_time = now.strftime("%H:%M:%S")
     f = open("log.txt", "a")
-    f.write("\n"+str(member) + " a primit unmute - "+d1+" "+current_time)
+    f.write("\n"+str(member) + " was unmuted - "+d1+" "+current_time)
     f.close()
 
 
@@ -111,14 +105,14 @@ async def c(ctx, amount):
         amount = 1000000000
         await ctx.channel.purge(limit=amount+1)
         await ctx.send(embed=discord.Embed(title="Clear ",
-                                           description="I cleared all the mesages!",
+                                           description="I cleared all the messages!",
                                            color=0xff9f12))
         today = date.today()
         d1 = today.strftime("%d/%m/%Y")
         now = datetime.now()
         current_time = now.strftime("%H:%M:%S")
         f = open("log.txt", "a")
-        f.write("\n"+"Am sters toate mesajele - "+d1+" "+current_time)
+        f.write("\n"+"I cleared all messages - "+d1+" "+current_time)
         f.close()
     else:
         await ctx.channel.purge(limit=int(amount)+1)
@@ -130,7 +124,7 @@ async def c(ctx, amount):
         now = datetime.now()
         current_time = now.strftime("%H:%M:%S")
         f = open("log.txt", "a")
-        f.write("\n"+"Am sters "+str(amount)+" mesaje - "+d1+" "+current_time)
+        f.write("\n"+"Cleared "+str(amount)+" messages - "+d1+" "+current_time)
         f.close()
 
 
@@ -147,7 +141,7 @@ async def k(ctx, member: discord.Member, *, reason="No specified reason"):
     today = date.today()
     d1 = today.strftime("%d/%m/%Y")
     f = open("log.txt", "a")
-    f.write("\n"+str(member) + " a primit kick - "+d1+" "+current_time)
+    f.write("\n"+str(member) + " was kicked - "+d1+" "+current_time)
     f.close()
 
 
@@ -178,7 +172,7 @@ async def b(ctx, member: discord.Member, *, reason="No specified reason"):
     now = datetime.now()
     current_time = now.strftime("%H:%M:%S")
     f = open("log.txt", "a")
-    f.write("\n"+str(member) + " a primit ban "+str(reason)+" - " + d1 + " " + current_time)
+    f.write("\n"+str(member) + " was banned "+str(reason)+" - " + d1 + " " + current_time)
     f.close()
 
 
@@ -200,7 +194,7 @@ async def ub(ctx, *, member):
             now = datetime.now()
             current_time = now.strftime("%H:%M:%S")
             f = open("log.txt", "a")
-            f.write("\n"+str(member) + " a primit unban - "+d1+" "+current_time)
+            f.write("\n"+str(member) + " was unbanned - "+d1+" "+current_time)
             f.close()
             return
     await ctx.send(embed=discord.Embed(title="UnBan ",
@@ -210,36 +204,9 @@ async def ub(ctx, *, member):
 
 @client.command(aliases=["social"])
 async def sm(ctx):
-    await ctx.send(embed=discord.Embed(title="Instagram",
-                                       description=str("***Stream House team***\n"
-                                                       "PatrickGM - Patrickgheba\n "
-                                                       "C3rberuS -  _davidgrs\n"
-                                                       "Livius91 - livius.91\n"
-                                                       "hola bb - 67jouvert\n"
-                                                       "Starigo - cornel_andrei76\n "
-                                                       "Hermano. - david_geamanu\n"
-                                                       "***Stream Squad***\n"
-                                                       "Vladut - vladut_marian10"),
+    await ctx.send(embed=discord.Embed(title="Social media",
+                                       description=str("Insert your social media"),
                                        color=0xff9f12))
-
-
-@client.command(aliases=["summonmusicbot"])
-async def smb(ctx):
-    webbrowser.open("https://glitch.com/edit/#!/workable-serious-brisket?path=.env%3A1%3A0")
-    await ctx.send(embed=discord.Embed(description="Done",
-                                       color=0xff9f12))
-
-
-@client.command(aliases=["opengubabrowser"])
-async def ogb(ctx, site):
-    if str(site) == "pornhub.com" or str(site) == "redtube.com" or str(site) == "youporn.com" or\
-            str(site) == "www.brazzers.com" or str(site) == "www.xvideos.com" or str(site) == "www.xnxx.com":
-        await ctx.send(embed=discord.Embed(description="Nu coaie pls",
-                                           color=0xff9f12))
-    else:
-        # webbrowser.open(site)
-        await ctx.send(embed=discord.Embed(description="De unde stii comanda asta?",
-                                           color=0xff9f12))
 
 
 client.run("ODE4MDg0Njg5MTA5NDUwNzgy.YES6vQ.V7jd57b38lDF9FwjvsB7PiZHnPY")
