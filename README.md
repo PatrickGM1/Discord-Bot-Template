@@ -1,4 +1,5 @@
 # Discord Bot Template
 - This is a bot I created myself to learn a bit of discord.py
 - Feel free to use it :)
-- Use this command in your IDE terminal (I personally recommend PyCharm): pip install discord
+- I personally recommend using PyCharm for this project
+- Use this command in your IDE terminal: pip install discord
